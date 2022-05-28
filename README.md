@@ -40,7 +40,7 @@ rosrun perception perception.py
 rosrun central central_controller
 ```
 
-- **roslaunch panda_moveit_config pc_control_moveit_rviz.launch** will launch the controller and moveit for the Panda arm
+- **roslaunch panda_moveit_config pc_control_moveit_rviz.launch** launches the controllers, rviz and moveit for the Panda arm using our custom cofugurations that include the camera and a custom panda_moveit_config package
 - **rostopic pub -r 10 /franka_control/error_recovery/goal franka_msgs/ErrorRecoveryActionGoal "{}"** recovers from errors and reflexes that might occur during the execution at 10 Hz
 - **rosrun perception perception.py** runs our perception node
 - **rosrun central central_controller** runs our centrall processing (movements, planning, logic, etc.)
