@@ -24,3 +24,23 @@ As the robot is used for other Proof of Concepts, we could not place the robot d
 - Add a tip on the side of the gripper to use to lift batteries
 - Custom make fingers to make it easier to grasp batteries
 - Confirm the task boards position from perception data to increase accuracy.
+
+
+## Quick Start Guide for this solution
+
+- Clone ourt repository 
+- Compile using catkin_make
+
+### Running the solution
+Open 4 terminals and source workspace. Run in the 4 terminals
+```
+roslaunch panda_moveit_config pc_control_moveit_rviz.launch
+rostopic pub -r 10 /franka_control/error_recovery/goal franka_msgs/ErrorRecoveryActionGoal "{}"
+rosrun perception perception.py
+rosrun central central_controller
+```
+
+- **roslaunch panda_moveit_config pc_control_moveit_rviz.launch** will launch the controller and moveit for the Panda arm
+- **rostopic pub -r 10 /franka_control/error_recovery/goal franka_msgs/ErrorRecoveryActionGoal "{}"** recovers from errors and reflexes that might occur during the execution
+- **rosrun perception perception.py** runs our perception node
+- **rosrun central central_controller** runs our centrall processing (movements, planning, logic, etc.)
