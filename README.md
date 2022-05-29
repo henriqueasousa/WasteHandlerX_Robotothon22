@@ -9,8 +9,10 @@
 
 - [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)
 - [MoveIt for Melodic](https://moveit.ros.org/install/)
-- [Intel RealSense2 camera & description for Melodic](https://github.com/IntelRealSense/realsense-ros):
+- [Intel RealSense2 camera & description for Melodic](https://github.com/IntelRealSense/realsense-ros)
 - [libfranka v0.8.0](https://frankaemika.github.io/docs/installation_linux.html)
+- [OpenCV](https://opencv.org/)
+- [librealsense](https://github.com/IntelRealSense/librealsense)
 
 We also cloned and use our own version of [franka_ros v0.8.0](https://frankaemika.github.io/docs/installation_linux.html) and [panda_moveit_config](https://github.com/ros-planning/panda_moveit_config). 
 
@@ -32,8 +34,14 @@ As the robot is used for other Proof of Concepts, we could not place the robot d
 Open 4 terminals and source workspace. Run in the 4 terminals
 ```
 roslaunch panda_moveit_config pc_control_moveit_rviz.launch
+```
+```
 rostopic pub -r 10 /franka_control/error_recovery/goal franka_msgs/ErrorRecoveryActionGoal "{}"
+```
+```
 rosrun perception perception.py
+```
+```
 rosrun central central_controller
 ```
 
